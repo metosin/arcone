@@ -1,0 +1,27 @@
+{
+  "name": "postcss",
+  "scripts": {
+    "postcss:compile": "postcss ./src/css/styles.css --dir ./public",
+    "postcss:watch":   "postcss ./src/css/styles.css --dir ./public --watch  --map"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.24",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-mixins": "^9.0.4",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^8.5.0",
+    "stylelint": "^15.8.0",
+    "stylelint-config-standard": "^33.0.0"
+  },
+  "browserslist": [
+    "> 0.5%"
+  ],
+  "stylelint": {
+    "rules": {
+      "color-no-invalid-hex": true
+    }
+  }
+}

@@ -1,0 +1,38 @@
+---
+version: '3.8'
+
+services:
+
+  # # PostCSS processing
+  # postcss:
+  #   image: metosin.arcone.dev/postcss:latest
+  #   init: true
+  #   restart: always
+  #   command: "npm run postcss:watch"
+  #   volumes:
+  #     - ./src/css:src/css
+  #     - ./public:public
+
+  # Database for testing
+  db:
+    image: postgres:16-bookworm
+    init: true
+    restart: always
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER_FILE=/run/secrets/postgres-username
+      - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-password
+      - LC_CTYPE=C.UTF-8
+      - LANG=C.UTF-8
+    secrets:
+      - postgres-username
+      - postgres-password
+    ports:
+      - 127.0.0.1:5432:5432
+
+secrets:
+  postgres-username:
+    file: ./secrets/postgres-username
+  postgres-password:
+    file: ./secrets/postgres-username
+

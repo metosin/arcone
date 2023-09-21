@@ -1,0 +1,9 @@
+{:arcone/db   {:host        #profile {:dev  "localhost"
+                                      :prod "db"}
+               :dbname      #or [#env DB_DATABASE "postgres"]
+               :username    #file "secrets/authenticator-username"
+               :password    #file "secrets/authenticator-password"
+               :server-role #or [#env SERVER_ROLE "server"]}
+ :arcone/http {:host #profile {:dev  "localhost"
+                               :prod "0.0.0.0"}
+               :port #or [#env PORT 8080]}}

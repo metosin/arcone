@@ -1,0 +1,74 @@
+/* 
+ * =========================================================================================
+ * Dropdown: ===============================================================================
+ * =========================================================================================
+ */
+
+
+ .dropdown {
+  display: inline-flex;
+  position: relative;
+}
+
+
+.dropdown-menu {
+  right: 0;
+  min-width: 12rem;
+  padding-top: 4px;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  z-index: 20;
+  opacity: 0;
+  --animation-duration: 300ms;
+  i {
+    color: var(--color-icon);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+
+.dropdown-menu-enter {
+  opacity: 0;
+}
+.dropdown-menu-enter-active {
+  opacity: 1;
+  transition: opacity var(--animation-duration);
+}
+.dropdown-menu-enter-done {
+  opacity: 1;
+}
+.dropdown-menu-exit {
+  opacity: 1;
+}
+.dropdown-menu-exit-active {
+  opacity: 0;
+  transition: opacity var(--animation-duration);
+}
+.dropdown-menu-exit-done {
+  opacity: 0;
+}
+
+
+.dropdown-content {
+  display: flex;
+  flex-flow: column nowrap;
+  /* padding: 0; */
+  background-color: var(--color-background);
+  border-radius: 4px;
+  box-shadow: var(--shadow-dropdown);
+  a {
+    padding: 0.9rem 0.75rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5em;
+    &:hover {
+      background-color: var(--color-hover);
+    }
+  }
+  hr {
+    margin: 0.5rem 0;
+  }
+}
+

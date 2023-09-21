@@ -1,0 +1,8 @@
+#kaocha/v1
+ #meta-merge
+  [{:tests [{:id         :unit
+             :test-paths ["src/test"]
+             :skip-meta  [:db]}
+            {:id         :db
+             :test-paths ["src/test"]
+             :focus-meta [:db]}]}]

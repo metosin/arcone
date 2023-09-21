@@ -1,0 +1,16 @@
+{:deps     {:aliases [:dev :test]}
+ :builds   {:web  {:target     :browser
+                   :output-dir "public/js"
+                   :asset-path "js"
+                   :modules    {:main {:entries [rockstore.web.app]}}
+                   :dev        {:closure-defines {rockstore.web.app/DEV true}}
+                   :release    {:closure-defines {rockstore.web.app/DEV false}}
+                   :devtools   {:before-load rockstore.web.app/stop
+                                :after-load  rockstore.web.app/start
+                                :watch-dir   "public"}}
+            :test {:target     :node-test
+                   :output-to  "target/test/index.js"
+                   :output-dir "target/test/js"
+                   :autorun    true}}
+ :dev-http {8080 {:root    "public"
+                  :handler metosin.arcone.dev.dev-http-handler/handler}}}
